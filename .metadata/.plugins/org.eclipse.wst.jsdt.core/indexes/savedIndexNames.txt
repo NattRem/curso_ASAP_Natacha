@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\usuario1\Desktop\curso_ASAP_2022Natacha\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1609123020.index
-3841675395.index
-2597902140.index
-3818650270.index
-3124860198.index
-1528527882.index
