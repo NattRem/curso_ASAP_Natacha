@@ -1,0 +1,20 @@
+INDEX VERSION 1.131+C:\Users\usuario1\Desktop\curso_ASAP_2022Natacha\.metadata\.plugins\org.eclipse.jdt.core
+1113722794.index
+1174273442.index
+545681001.index
+521966203.index
+915889809.index
+2327443724.index
+3954455633.index
+528895089.index
+801035862.index
+488043510.index
+1865797976.index
+1212051174.index
+3791215736.index
+3573361182.index
+3378344501.index
+636879419.index
+1218005528.index
+1257437652.index
+3455778421.index

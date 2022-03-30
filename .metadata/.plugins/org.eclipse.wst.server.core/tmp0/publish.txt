@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Mar 29 22:49:21 ART 2022
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\usuario1\\Desktop\\curso_ASAP_2022Natacha-master\\HolaSpringFrameWork\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-5.3.17.jar=WEB-INF/lib/spring-web-5.3.17.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\usuario1\\Desktop\\curso_ASAP_2022Natacha\\HolaSpringFrameWork\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-5.3.17.jar=WEB-INF/lib/spring-web-5.3.17.jar
