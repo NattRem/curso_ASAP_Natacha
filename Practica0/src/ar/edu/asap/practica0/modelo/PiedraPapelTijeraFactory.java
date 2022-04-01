@@ -68,6 +68,12 @@ public abstract class PiedraPapelTijeraFactory {
 		
 		return null;
 	}
+
+
+	@Override
+	public String toString() {
+		return  numero + "-" + nombre  ;
+	}
 	
 	
 }
