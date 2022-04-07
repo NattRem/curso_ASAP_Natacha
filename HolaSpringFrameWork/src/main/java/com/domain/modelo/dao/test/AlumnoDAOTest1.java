@@ -1,6 +1,6 @@
 package com.domain.modelo.dao.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.SQLException;
 
@@ -11,32 +11,31 @@ import org.junit.jupiter.api.Test;
 import com.domain.modelo.Alumno;
 import com.domain.modelo.dao.AlumnoDAO;
 
-class AlumnoDAOTest {
+class AlumnoDAOTest1 {
 	AlumnoDAO aluDao;
 	Alumno alumno;
-	Alumno aluMod;
 
 	@BeforeEach
-	public void setUp() throws Exception {
+	void setUp() throws Exception {
 		aluDao = new AlumnoDAO();
-		alumno = new Alumno(0, "Natacha_Test","Gomez_Test", "remnatt4@mail_Test","Terciarios_Test", "git_Test");
+		alumno = new Alumno(0, "Natacha test", "Gomez test", "email@gmail.test", "tercearios test", "linkgit test");
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception {
-		aluDao=null;
-		alumno=null;
+	void tearDown() throws Exception {
+		aluDao = null;
+		alumno = null;
 	}
 
 	@Test
-	public void testAgregar() {
+	void testAgregar() {
 		try {
 			aluDao.agregar(alumno);
 			assertTrue(true);
-		}catch(ClassNotFoundException | SQLException e){
-			assertTrue(false);
+		} catch (ClassNotFoundException | SQLException e) {
+
 			e.printStackTrace();
-			
+			assertTrue(false);
 		}
 	}
 

@@ -8,24 +8,27 @@ import java.util.List;
 import com.domain.modelo.Alumno;
 import com.domain.modelo.Model;
 import com.domain.util.ConnectionManager;
-import com.mysql.cj.xdevapi.PreparableStatement;
+
 
 public class AlumnoDAO implements DAO {
 	 private Connection conexion;
-	 public AlumnoDAO() throws ClassNotFoundException, SQLException {
-		 ConnectionManager.conectar();
-		 conexion=ConnectionManager.getConection();
+	 public AlumnoDAO() throws ClassNotFoundException, SQLException{
+		ConnectionManager.conectar();
+		conexion= ConnectionManager.getConection(); 
 	 }
+	 
 	@Override
 	public void agregar(Model pModel) throws ClassNotFoundException, SQLException {
-		StringBuilder sql = new StringBuilder("inset into alumnos (ALU_NOMBRE, ALU_APELLIDO, "	);
-					sql		.append						("ALU_EMAIL, ALU_CONOCIMIENTOS, ALU_GIT")
+		
+		
+		StringBuilder sql = new StringBuilder("INSERT INTO alumnos (ALU_NOMBRE, ALU_APELLIDO, ALU_EMAIL,"	);
+					sql		.append						("ALU_CONOCIMIENTOS, ALU_GIT)")
 							.append						("values(?,?,?,?,?"						);
 		
 		
 		Alumno alu = (Alumno)pModel;
 		
-		PreparedStatement stm = conexion.prepareStatement("");
+		PreparedStatement stm = conexion.prepareStatement(sql.toString());
 		stm.setString(1, alu.getNombre());
 		stm.setString(2, alu.getApellido());
 		stm.setString(3, alu.getEmail());

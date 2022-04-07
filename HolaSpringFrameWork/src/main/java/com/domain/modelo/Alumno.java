@@ -15,6 +15,10 @@ public class Alumno implements Model, Vaciable{
 	public Alumno() {
 	}
 	
+	public Alumno(int codigo) {
+		this.codigo = codigo;
+	}
+	
 	public Alumno(int codigo, String nombre, String apellido, String email, String estudios, String linkArepositorio) {
 		super();
 		this.codigo = codigo;
@@ -26,14 +30,7 @@ public class Alumno implements Model, Vaciable{
 	}
 
 
-	public Alumno() {
-		super();
-	}
-
-	public Alumno(int codigo) {
-		super();
-		this.codigo = codigo;
-	}
+	
 
 
 	public int getCodigo() {

@@ -12,7 +12,7 @@ public class ConnectionManager {
 		
 	public static void conectar() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/asap", "roota", "Rocamadour2020");
+		conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/asap", "root", "Rocamadour2020");
 	}
 	public static void desConectar() throws SQLException {
 		conection.close();
