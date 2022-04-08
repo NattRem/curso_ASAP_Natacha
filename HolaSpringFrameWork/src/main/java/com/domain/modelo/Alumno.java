@@ -33,6 +33,10 @@ public class Alumno implements Model, Vaciable{
 	
 
 
+	public Alumno(int int1, String string, int int2, String string2, int int3, int int4) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
