@@ -1,5 +1,6 @@
 package com.domain.modelo.dao.test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -18,6 +20,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.domain.modelo.Alumno;
+import com.domain.modelo.Model;
 import com.domain.modelo.dao.AlumnoDAO;
 import com.domain.util.ConnectionManager;
 
@@ -119,6 +122,22 @@ class AlumnoDAOTest1 {
 								rs.getString("ALU_EMAIL"),
 								rs.getInt("ALU_CONOCIMIENTOSO"),
 								rs.getInt("ALU_GIT"));
+		
+		//LEER X NOMBRE
+		
+				sql =new StringBuilder("select ALU_NOMBRE , ALU_APELLIDO , ALU_EMAIL, ALU_CONOCIMIENTOS , ALU_GIT");
+				sql.append("From alumnos");
+				sql.append("Where ALU_NOMBRE=Marina_test");
+				
+				rs = stm.executeQuery(sql.toString());
+				if(rs.next());
+				
+				alumnoLeerNom = new Alumno(0,
+										rs.getString("ALU_NOMBRE"),
+										rs.getInt("ALU_APELLIDO"),
+										rs.getString("ALU_EMAIL"),
+										rs.getInt("ALU_CONOCIMIENTOSO"),
+										rs.getInt("ALU_GIT"));
 		
 	}
 
@@ -222,5 +241,103 @@ class AlumnoDAOTest1 {
 			assertTrue(false);
 		}
 	}
+	
+	@Test
+	void testEliminar() {
+		try {
+			
+			aluDao.eliminar(alumnoEliminar);
+
+			
+			StringBuilder sql =new StringBuilder("select ALU_NOMBRE , ALU_APELLIDO , ALU_EMAIL, ALU_CONOCIMIENTOS , ALU_GIT");
+							sql.append("From alumnos");
+							sql.append("Where ALU_NOMBRE= 'Monsef_test'");
+			
+			rs = stm.executeQuery(sql.toString());
+			assertFalse(rs.next());
+			
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	void testLeerCod() {
+		try {
+			List<Model> alumnos = aluDao.leer(alumnoLeerCod);
+			
+			
+			Alumno aluLeido = (Alumno)alumnos.get(0);
+			assertEquals(1, alumnos.size());
+			
+			assertEquals(alumnoLeerCod.getNombre(), 		  aluLeido.getNombre());
+			assertEquals(alumnoLeerCod.getApellido(), 		  aluLeido.getApellido());
+			assertEquals(alumnoLeerCod.getEmail(), 			  aluLeido.getEmail());
+			assertEquals(alumnoLeerCod.getEstudios(), 		  aluLeido.getEstudios());
+			assertEquals(alumnoLeerCod.getLinkArepositorio(), aluLeido.getLinkArepositorio());
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	void testLeerNombre() {
+		try {
+			List<Model> alumnos = aluDao.leer(alumnoLeerNom);
+			
+			
+			Alumno aluLeido = (Alumno)alumnos.get(0);
+			assertEquals(1, alumnos.size());
+			
+			assertEquals(alumnoLeerNom.getNombre(), 		  aluLeido.getNombre());
+			assertEquals(alumnoLeerNom.getApellido(), 		  aluLeido.getApellido());
+			assertEquals(alumnoLeerNom.getEmail(), 			  aluLeido.getEmail());
+			assertEquals(alumnoLeerNom.getEstudios(), 		  aluLeido.getEstudios());
+			assertEquals(alumnoLeerNom.getLinkArepositorio(), aluLeido.getLinkArepositorio());
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	void testLeerTodosNULL() {
+		try {
+			List<Model> alumnos = aluDao.leer(null);
+			
+			System.out.println("alumnos=" + alumnos);
+
+			assertTrue(alumnos.size()>1);
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	void testLeerTodos_VACIO() {
+		try {
+			List<Model> alumnos = aluDao.leer(new Alumno());
+			
+			System.out.println("alumnos=" + alumnos);
+
+			assertTrue(alumnos.size()>1);
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			assertTrue(false);
+		}
+	}
+	
 
 }
