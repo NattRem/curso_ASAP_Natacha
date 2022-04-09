@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<import resource="jugador.xml"/>
 	<import resource="jugador2.xml"/>
@@ -11,7 +13,7 @@
 			<value>1</value>
 		</property>
 		<property name="fechaHora">
-			<bean factory-bean="dateFromat" factory-method="parse">
+			<bean factory-bean="dateFormat" factory-method="parse">
 				<constructor-arg value="2010-01-31"/>
 			</bean>
 		</property>
@@ -36,12 +38,14 @@
 	</bean>
 	
 	<aop:config>
-	  <aop:aspect ref="Autoria">
-	  	<aop:pointcut id="getDescripcionDelresultado" 
-	  			expression="execution(* *.getDescripcionDelresultado())" />
-	  	<aop:after  pointcut-ref="getDescripcionDelresultado"
+	  <aop:aspect ref="autoria">
+	  	<aop:pointcut id="comparar" 
+	  			expression="execution(* *.comparar(..))" />
+	  	<aop:after  pointcut-ref="comparar"
 	  		method="contarDespuesDeLaJugada"/>
 	  </aop:aspect>
 	</aop:config>
+
 	
+
 </beans>

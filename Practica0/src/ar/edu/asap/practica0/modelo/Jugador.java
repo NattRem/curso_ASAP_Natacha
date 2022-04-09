@@ -49,7 +49,7 @@ public class Jugador {
 		return jugadaElegida;
 	}
 
-	public void setJugadaElegida1(PiedraPapelTijeraFactory jugadaElegida) {
+	public void setJugadaElegida(PiedraPapelTijeraFactory jugadaElegida) {
 		this.jugadaElegida = jugadaElegida;
 	}
 
