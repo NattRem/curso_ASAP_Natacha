@@ -1,5 +1,6 @@
 package com.domain.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,9 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.domain.modelo.dao.AlumnoDAO;
 
 import ar.edu.asap.practica0.modelo.Lagartija;
 import ar.edu.asap.practica0.modelo.Papel;
@@ -38,16 +40,19 @@ public class IndexController {
 	@RequestMapping("/listado")
 	public String goListado(Model model) {
 		
-		List<String> alumnos = new ArrayList<String>();
-		alumnos.add("Juan");
-		alumnos.add("Pedro");
-		alumnos.add("Jose");
-		
-		model.addAttribute("titulo", "Listado de Alumnos");
-		model.addAttribute("profesor", "Gabriel Casas");
-		model.addAttribute("alumnos", alumnos);
-		
-		
+		AlumnoDAO aluDao;
+		try {
+			aluDao = new AlumnoDAO();
+			List<com.domain.modelo.Model> alumnos = aluDao.leer(null); 
+			
+			model.addAttribute("titulo", "Listado de alumnos");
+			model.addAttribute("profesor", "Gabriel Casas");
+			model.addAttribute("alumnos", alumnos);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			e.printStackTrace();
+		}
 		
 		return "Listado";
 	}

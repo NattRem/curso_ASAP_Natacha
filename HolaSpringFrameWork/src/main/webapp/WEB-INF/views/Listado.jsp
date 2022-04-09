@@ -14,11 +14,20 @@
 <h1>PROFESOR ${profesor}</h1>
 <br>
 
-	<ul>
-			<c:forEach items="${alumnos}" var="alumno">
-					<li><c:out value="${alumno}" /></li>
-			</c:forEach>
-	</ul>
+	<table>
+	<tr>
+	<th>codigo</th><th>nombre</th><th>apellido</th><th>repositorio</th>
+	</tr>
+		<c:forEach items="${alumnos}" var="alumno">
+			<tr>
+				<td><c:out value="${alumno.getCodigo()}"/>  </td>
+				<td><c:out value="${alumno.getNombre()}"/>  </td>
+				<td><c:out value="${alumno.getApellido()}"/></td>
+				<td><c:out value="${alumno.getLinkArepositorio()}"/></td> 
+			</tr>
+		</c:forEach>
+	</table>
+
 
 </body>
 </html>
