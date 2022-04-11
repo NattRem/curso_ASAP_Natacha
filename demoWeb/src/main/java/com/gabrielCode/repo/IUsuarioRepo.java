@@ -7,5 +7,4 @@ import com.gabrielCode.model.Usuario;
 public interface IUsuarioRepo extends JpaRepository<Usuario, Integer>{
 	Usuario findByNombre(String pNombre);
 
-	Usuario save(Usuario usu);
 }
