@@ -35,8 +35,10 @@ public class JugadorTest {
 	public void tearDown() throws Exception {
 		context = null;
 		context2 = null;
+		context3 = null;
 		jug1 = null;
 		jug2 = null;
+		jugada = null;
 		autoria = null;
 	}
 

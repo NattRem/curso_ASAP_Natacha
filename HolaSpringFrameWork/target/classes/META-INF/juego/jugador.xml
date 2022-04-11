@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
+
 	<bean id="jug1" class="ar.edu.asap.practica0.modelo.Jugador">
 		<property name="codigo">
 			<value>1</value>
@@ -19,8 +20,9 @@
 			<ref bean="piedra"/>
 		</property>
 	</bean>
-	
 	<bean id="piedra" class="ar.edu.asap.practica0.modelo.Piedra"></bean>
+	
+
 
 
 

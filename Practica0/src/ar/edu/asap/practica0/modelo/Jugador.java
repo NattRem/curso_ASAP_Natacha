@@ -45,6 +45,8 @@ public class Jugador {
 		this.nickName = nickName;
 	}
 
+	
+
 	public PiedraPapelTijeraFactory getJugadaElegida() {
 		return jugadaElegida;
 	}
@@ -73,9 +75,9 @@ public class Jugador {
 
 	@Override
 	public String toString() {
-		return "Jugador [codigo=" + codigo + ", nombre=" + nombre + ", nickName=" + nickName + ", jugadaElegida1="
+		return "Jugador [codigo=" + codigo + ", nombre=" + nombre + ", nickName=" + nickName + ", jugadaElegida="
 				+ jugadaElegida + ", getCodigo()=" + getCodigo() + ", getNombre()=" + getNombre() + ", getNickName()="
-				+ getNickName() + ", getJugadaElegida1()=" + getJugadaElegida() + ", hashCode()=" + hashCode()
+				+ getNickName() + ", getJugadaElegida()=" + getJugadaElegida() + ", hashCode()=" + hashCode()
 				+ ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
 	}
 	
