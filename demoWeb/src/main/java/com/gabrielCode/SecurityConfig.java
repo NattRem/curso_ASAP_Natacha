@@ -13,19 +13,19 @@ import com.gabrielCode.service.UserService;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	
 	@Autowired
 	private UserService userDetailsService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
-
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return new BCryptPasswordEncoder(); 
 	}
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bcrypt);
@@ -33,14 +33,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-			
+		http 
+		   .csrf() 
+		   .disable() 
 		   .authorizeRequests()
 		   .anyRequest()
 		   .authenticated()
 		   .and()
 		   .httpBasic();
 	}
-
-
+	
+	
+	
 }
