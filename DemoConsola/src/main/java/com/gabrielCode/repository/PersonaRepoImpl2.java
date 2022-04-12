@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.gabrielCode.DemoConsolaApplication;
 
 @Repository
-@Qualifier
+@Qualifier ("persona2")
 public class PersonaRepoImpl2 implements IPersona{
 	private static Logger log = LoggerFactory.getLogger(DemoConsolaApplication.class);
 	@Override

@@ -19,7 +19,7 @@ import com.gabrielCode.repo.IPersonaRepo;
 		@GetMapping("/greeting")
 		public String greeting(@RequestParam(name="name", required=false, defaultValue = "World") String name, Model model) {
 			if(name.endsWith("World")) {
-				repo.delete(new Persona(2,"Gabriel Casas"));
+				//repo.delete(new Persona(2,"Gabriel Casas"));
 				name="GabrielCode";
 			}
 				
