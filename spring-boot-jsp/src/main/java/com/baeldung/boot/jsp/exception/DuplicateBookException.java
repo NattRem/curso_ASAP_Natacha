@@ -10,4 +10,8 @@ public class DuplicateBookException extends RuntimeException {
     public DuplicateBookException(Book book) {
         this.book = book;
     }
+    
+    public Book getBook() {
+		return book;
+	}
 }

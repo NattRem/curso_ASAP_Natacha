@@ -10,11 +10,10 @@ public class Jugada {
 	private Jugador jug1;
 	private Jugador jug2;
 	
-	public Jugada() {
-		super();
-	}
+	public Jugada() {}
 
 	public Jugada(int codigo, Date fechaHora, Jugador jug1, Jugador jug2) {
+		super();
 		this.codigo = codigo;
 		this.fechaHora = fechaHora;
 		this.jug1 = jug1;
@@ -56,8 +55,14 @@ public class Jugada {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(codigo, fechaHora, jug1, jug2);
+		return Objects.hash(codigo, fechaHora);
 	}
+	
+	public String getDescripcionDelresultado() {
+		jug1.getJugadaElegida().comparar(jug2.getJugadaElegida());		
+		return jug1.getJugadaElegida().getDescriptionResultado();
+	}
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -68,16 +73,10 @@ public class Jugada {
 		if (getClass() != obj.getClass())
 			return false;
 		Jugada other = (Jugada) obj;
-		return codigo == other.codigo && Objects.equals(fechaHora, other.fechaHora) && Objects.equals(jug1, other.jug1)
-				&& Objects.equals(jug2, other.jug2);
+		return codigo == other.codigo && Objects.equals(fechaHora, other.fechaHora);
 	}
 	
-	public String getDescripcionDelresultado() {
-		int resultadoInt = jug1.getJugadaElegida().comparar(jug2.getJugadaElegida());
-		String resultadoString = jug1.getJugadaElegida().getDescriptionResultado();
-		return resultadoString;
 
-	}
 
 
 	@Override

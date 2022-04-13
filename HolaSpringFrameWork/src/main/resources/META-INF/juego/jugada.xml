@@ -6,17 +6,18 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<import resource="jugador.xml"/>
-	<import resource="jugador2.xml"/>
-	
+	<import resource="jugador2.xml"/>	
+
 	<bean id="jugada" class="ar.edu.asap.practica0.modelo.Jugada">
 		<property name="codigo">
-			<value>1</value>
+		 	<value>1</value>
 		</property>
-		<property name="fechaHora">
-			<bean factory-bean="dateFormat" factory-method="parse">
-				<constructor-arg value="2010-01-31"/>
-			</bean>
-		</property>
+    	<property name="fechaHora">
+      		<bean factory-bean="dateFormat" factory-method="parse">
+        		<constructor-arg value="2010-01-31" />
+      		</bean>      
+    	</property>
+
 		
 		<property name="jugador1">
 			<ref bean="jug1"/>

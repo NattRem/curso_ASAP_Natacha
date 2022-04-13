@@ -2,16 +2,17 @@ package ar.edu.asap.Practica0.modelo.spring.test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import ar.edu.asap.practica0.modelo.Autoria;
 import ar.edu.asap.practica0.modelo.Jugada;
 import ar.edu.asap.practica0.modelo.Jugador;
 
-public class JugadorTest {
+public class JugadorTest1 {
 	ClassPathXmlApplicationContext context=null;
 	ClassPathXmlApplicationContext context2=null;
 	ClassPathXmlApplicationContext context3=null;
@@ -20,7 +21,7 @@ public class JugadorTest {
 	Jugada jugada =null;
 	Autoria autoria = null;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		context = new ClassPathXmlApplicationContext("META-INF/juego/jugador.xml");
 		context2 = new ClassPathXmlApplicationContext("META-INF/juego/jugador2.xml");
@@ -31,14 +32,12 @@ public class JugadorTest {
 		autoria = context3.getBean(Autoria.class);
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterEach
+	void tearDown() throws Exception {
 		context = null;
 		context2 = null;
-		context3 = null;
 		jug1 = null;
 		jug2 = null;
-		jugada = null;
 		autoria = null;
 	}
 
@@ -52,7 +51,7 @@ public class JugadorTest {
 	
 	@Test
 	public void testGetBeanAttributes2() {
-		assertEquals(2, 		jug2.getCodigo());
+		assertEquals(2, 	jug2.getCodigo());
 		assertEquals("Maria", jug2.getNombre());
 		assertEquals("mamasa", jug2.getNickName());
 		assertEquals("spock",  jug2.getJugadaElegida().getNombre());
